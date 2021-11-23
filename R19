@@ -1,5 +1,6 @@
 #include <iostream>
 #include <ctime>
+#include <string>
 using namespace std;
 
 
@@ -89,13 +90,17 @@ void HP_Fun() {
 	case 5:
 		if (HP == 1) {
 			cout << "\x1b[91m" << "		У вас " << HP << " жизнь" << "\x1b[0m";
-		}else if (HP == 2) {
+		}
+		else if (HP == 2) {
 			cout << "\x1b[93m" << "		У вас " << HP << " жизни" << "\x1b[0m";
-		}else if (HP == 3) {
+		}
+		else if (HP == 3) {
 			cout << "\x1b[93m" << "		У вас " << HP << " жизни" << "\x1b[0m";
-		}else if (HP == 4) {
+		}
+		else if (HP == 4) {
 			cout << "\x1b[92m" << "		У вас " << HP << " жизни" << "\x1b[0m";
-		}else if (HP == 5) {
+		}
+		else if (HP == 5) {
 			cout << "\x1b[92m" << "		У вас " << HP << " жизней" << "\x1b[0m";
 		}
 		break;
@@ -124,10 +129,10 @@ int main()
 	setlocale(0, "");
 	system("cls");
 	cout << "	Кто хочет стать не знаю кем?" << endl;
-    cout << "1. Начать викторину" << endl;
-    cout << "2. Настройки" << endl;
-    cout << "3. Правила" << endl;
-    cout << "4. Выход" << endl;
+	cout << "1. Начать викторину" << endl;
+	cout << "2. Настройки" << endl;
+	cout << "3. Правила" << endl;
+	cout << "4. Выход" << endl;
 
 
 	cout << "Выберете действие: ";
@@ -189,203 +194,257 @@ int main()
 
 				if (User_Answer == 5) {
 					//string Result_right[4];
-					int Check_FiftyOnFifty[2] = {0,0};   //уд
+					int Check_FiftyOnFifty[2] = { 0,0 };   //уд
 					system("cls");
 					HP_Fun();
 					cout << endl << "\x1b[96m" << i + 1 << ") " << array_Questions[Random_Question - 1][0] << "\x1b[0m" << endl << endl;
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+					////////////////////////////////////////////////////////////////////////////////////////////////////
 
-					//Result_right[Random_Answer] == array_Questions[a][1]
-					for (int k = 0; k < 2; k++) {
-						if (Result_right[k] == array_Questions[Random_Question - 1][1] /*or Result_right[1] == array_Questions[Random_Question - 1][1]*/) {
-							while (Random_Answer == Check_FiftyOnFifty[0] or Random_Answer == Check_FiftyOnFifty[1] /*or Check_FiftyOnFifty[0] == Random_Answer or Check_FiftyOnFifty[1] == Random_Answer*/) {
+										//Result_right[Random_Answer] == array_Questions[a][1]
 
-								Random_Answer = rand() % 4;
-								Random_Answer++;
+					short random = rand() % 2;
+					if (random == 0) {
+						for (int k = 0; k < 1; k++)
+						{
+							if (Result_right[k] == array_Questions[Random_Question-1][1])
+							{
+								cout << "1) " << Result_right[k] << endl;
 							}
-							Check_FiftyOnFifty[k] = Random_Answer;
-							Result_right[k] = array_Questions[Random_Question - 1][Random_Answer];
-						}
-						cout << k + 1 << ") " << Result_right[k] << endl;
+							else {
+								Result_right[k] = array_Questions[Random_Question-1][1];
+								cout << "1) " << Result_right[k] << endl;
+ 							}
 
-					}
-					cin >> User_Answer;
-				}
-				
+							
+							for (int l = 1;l < 2; l++)
+							{
+								if (Result_right[l] != array_Questions[Random_Question-1][1])
+									cout <<"2) " <<Result_right[l] << endl;
+								else {
+									Result_right[l] = array_Questions[Random_Question-1][rand()%4+1];
+									cout <<"2) " <<Result_right[l] << endl;
+								}
+							}
 							
 
+						}
+					}
+					else {
+						for (int k = 0; k < 1; k++)
+						{
+							if (Result_right[k] != array_Questions[Random_Question-1][1])
+							{
+								cout <<"1) "<<Result_right[k] << endl;
+							}
+							else 
+							{
+								Result_right[k] = array_Questions[Random_Question-1][rand() % 4 + 1];
+								cout << "1) "<<Result_right[k] << endl;
+ 							}
 
+							for (int l = 1;l < 2; l++)
+							{
+								if (Result_right[l] == array_Questions[Random_Question-1][1])
+									cout  <<"2) " <<Result_right[l] << endl;
+								else {
+									Result_right[l] = array_Questions[Random_Question-1][1];
+									cout <<"2) "<< Result_right[l] << endl;
+								}
+							}
+
+						}
+						
+					}
+					cout << "Выберете действие: ";
+					cin >> User_Answer;
+
+
+				//	for (int k = 0; k < 2; k++) {
+				//		if (Result_right[k] == array_Questions[Random_Question - 1][1] /*or Result_right[1] == array_Questions[Random_Question - 1][1]*/) {
+				//			while (Random_Answer == Check_FiftyOnFifty[0] or Random_Answer == Check_FiftyOnFifty[1] /*or Check_FiftyOnFifty[0] == Random_Answer or Check_FiftyOnFifty[1] == Random_Answer*/) {
+
+				//				Random_Answer = rand() % 4;
+				//				Random_Answer++;
+				//			}
+				//			Check_FiftyOnFifty[k] = Random_Answer;
+				//			Result_right[k] = array_Questions[Random_Question - 1][Random_Answer];
+				//		}
+				//		cout << k + 1 << ") " << Result_right[k] << endl;
+
+				//	}
+				//	cin >> User_Answer;
+				//}
 				/*
-				
+
 				while (Random_Answer == Result_right[0] or Random_Answer == Result_right[1] or Result_right[0] == Random_Answer or Result_right[1] == Random_Answer) {
-				
+
 				*/
 
 
 
 
-////////////////////////////////////////////////////////////////////////////////////////////////////
+				////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 
 
 
 
-				//	int a = rand() % 2 + 1;
-				//	int random = rand() % 4 + 1;
+								//	int a = rand() % 2 + 1;
+								//	int random = rand() % 4 + 1;
 
 
 
-				//	if (Result_right[random] == array_Questions[Check_Questions[i]][1]) {
-				//		while (Result_right[random] == array_Questions[Check_Questions[i]][1]) {
-				//			random = rand() % 4 + 1;
-				//		}
-				//	}
-				//	//if (a % 2 == 0) {
-				//		cout << "Один из правильных вариантов ответа: " << Result_right[random] << " или " << array_Questions[Check_Questions[i]][1];
-				//	//}
-				//	//else {
-				//		//cout << "Один из правильных вариантов ответа: " << array_Questions[Check_Questions[i]][1] << " или " << Result_right[random];
-				//	//}
-				//	//HP--;
-				//	/*if (HP > 1) {
-				//		cout << "\nПодсказок осталось: \x1b[94m" << HP << "\x1b[0m ";
-				//	}
-				//	else {
-				//		cout << "\nПодсказки закончились :с";
-				//	}*/
-				//	//i--;
-				//}
-
-
-
-
+								//	if (Result_right[random] == array_Questions[Check_Questions[i]][1]) {
+								//		while (Result_right[random] == array_Questions[Check_Questions[i]][1]) {
+								//			random = rand() % 4 + 1;
+								//		}
+								//	}
+								//	//if (a % 2 == 0) {
+								//		cout << "Один из правильных вариантов ответа: " << Result_right[random] << " или " << array_Questions[Check_Questions[i]][1];
+								//	//}
+								//	//else {
+								//		//cout << "Один из правильных вариантов ответа: " << array_Questions[Check_Questions[i]][1] << " или " << Result_right[random];
+								//	//}
+								//	//HP--;
+								//	/*if (HP > 1) {
+								//		cout << "\nПодсказок осталось: \x1b[94m" << HP << "\x1b[0m ";
+								//	}
+								//	else {
+								//		cout << "\nПодсказки закончились :с";
+								//	}*/
+								//	//i--;
+								//}
 
 
 
 
-						
-					//int random = rand() % 4 + 1;
-					//if (Result_right[random] == array_Questions[Random_Question - 1][0]) {
 
-					//	while (Result_right[random] == array_Questions[Random_Question - 1][0]) {
-					//		random = rand() % 4 + 1;
+
+
+
+
+									//int random = rand() % 4 + 1;
+									//if (Result_right[random] == array_Questions[Random_Question - 1][0]) {
+
+									//	while (Result_right[random] == array_Questions[Random_Question - 1][0]) {
+									//		random = rand() % 4 + 1;
+									//	}
+									//}
+
+
+									//if ((numAnswerUser == "0") && qtyLives >= 1) {
+									//	int a = rand() % 2 + 1;
+									//	int random = rand() % 4 + 1;
+									//	if (to_string(random) == arrayQuestions[numQuestion[i]][5]) {
+									//		while (to_string(random) == arrayQuestions[numQuestion[i]][5]) {
+									//			random = rand() % 4 + 1;
+									//		}
+									//	}}
+
+
+								//	for (j = 0; j < 4; j++) {
+
+								//		while (Random_Answer == Check_Answer[0] or Random_Answer == Check_Answer[1] or Random_Answer == Check_Answer[2] or Random_Answer == Check_Answer[3]) {
+								//			
+								//			Random_Answer = rand() % 4;
+								//			Random_Answer++;
+								//		}
+
+								//		int prikol;
+								//		while (Result_right[prikol] == Result_right[j]) {
+								//			int prikol = rand() % 5;
+								//		}
+
+								//		//if () {
+								//		
+								//		//}
+
+								//		Check_Answer[j] = Random_Answer;
+								//		Result_right[j] = array_Questions[Random_Question - 1][Random_Answer];
+
+								//		cout << j + 1 << ") " << Result_right[j] << endl;
+
+								//	}
+								//}
+
+				/*{*/
+					/*for (int k = 0; k < 4; k++) {
+						for (int a = 0; a < 15; a++) {
+
+							if (Result_right[k] == array_Questions[a][1]) {
+								cout << "1) " << Result_right[k] << endl;
+
+							}
+						}
+
+
+						while (Result_right[Random_Answer] == Result_right[k]) {
+							Random_Answer = rand() % 4;
+							Random_Answer++;
+						}
+
+						Result_right[j] = array_Questions[Random_Question][Random_Answer];
+
+						cout << "2" << ") " << Result_right[Random_Answer] << endl;
+
+					}
+
+
+					cout << "Выберете действие: ";
+					cin >> User_Answer;*/
+
+
+
+
+					//for (int b = 0; b < 1; b++) {
+
+					//	while (Random_Answer == Check_Answer[0]) {
+
+					//		Random_Answer = rand() % 4;
+					//		Random_Answer++;
+					//		Result_right[Random_Answer];
 					//	}
+					//	Check_Answer[b] = Random_Answer;
+					//	Result_right[j] = array_Questions[Random_Question][Random_Answer];
+
+					//	cout << b + 1 << ") " << Result_right[j] << endl;
+
 					//}
 
 
-					//if ((numAnswerUser == "0") && qtyLives >= 1) {
-					//	int a = rand() % 2 + 1;
-					//	int random = rand() % 4 + 1;
-					//	if (to_string(random) == arrayQuestions[numQuestion[i]][5]) {
-					//		while (to_string(random) == arrayQuestions[numQuestion[i]][5]) {
-					//			random = rand() % 4 + 1;
-					//		}
-					//	}}
 
-
-				//	for (j = 0; j < 4; j++) {
-
-				//		while (Random_Answer == Check_Answer[0] or Random_Answer == Check_Answer[1] or Random_Answer == Check_Answer[2] or Random_Answer == Check_Answer[3]) {
-				//			
-				//			Random_Answer = rand() % 4;
-				//			Random_Answer++;
-				//		}
-
-				//		int prikol;
-				//		while (Result_right[prikol] == Result_right[j]) {
-				//			int prikol = rand() % 5;
-				//		}
-
-				//		//if () {
-				//		
-				//		//}
-
-				//		Check_Answer[j] = Random_Answer;
-				//		Result_right[j] = array_Questions[Random_Question - 1][Random_Answer];
-
-				//		cout << j + 1 << ") " << Result_right[j] << endl;
-
-				//	}
 				//}
+			//}
+			//else {
+				}
+				User_Answer--;
 
-				{
-				/*for (int k = 0; k < 4; k++) {
-					for (int a = 0; a < 15; a++) {
+				int a = 0;
 
-						if (Result_right[k] == array_Questions[a][1]) {
-							cout << "1) " << Result_right[k] << endl;
-
+				while (a < 15) {
+					if (Result_right[User_Answer] == array_Questions[a][1]) {
+						cout << "\x1b[92mПравильно\x1b[0m" << endl << endl;
+						Points++;
+						system("pause");
+						break;
+					}
+					else if (a > 13) {
+						cout << "\x1b[91mНеправильно\x1b[0m" << endl << endl;
+						system("pause");
+						HP--;
+						if (HP == 0) {
+							system("cls");
+							cout << endl << "Увы, но у вас закончились жизни! :(" << endl;
+							cout << "Вы набрали: " << Points << endl;
+							exit(0);
 						}
 					}
-
-
-					while (Result_right[Random_Answer] == Result_right[k]) {
-						Random_Answer = rand() % 4;
-						Random_Answer++;
-					}
-
-					Result_right[j] = array_Questions[Random_Question][Random_Answer];
-
-					cout << "2" << ") " << Result_right[Random_Answer] << endl;
+					a++;
 
 				}
-
-
-				cout << "Выберете действие: ";
-				cin >> User_Answer;*/
-
-
-
-
-				//for (int b = 0; b < 1; b++) {
-
-				//	while (Random_Answer == Check_Answer[0]) {
-
-				//		Random_Answer = rand() % 4;
-				//		Random_Answer++;
-				//		Result_right[Random_Answer];
 				//	}
-				//	Check_Answer[b] = Random_Answer;
-				//	Result_right[j] = array_Questions[Random_Question][Random_Answer];
-
-				//	cout << b + 1 << ") " << Result_right[j] << endl;
-
-				//}
-
-
-
-			//}
-		//}
-		//else {
-			}
-					User_Answer--;
-
-					int a = 0;
-
-					while (a < 15) {
-						if (Result_right[User_Answer] == array_Questions[a][1]) {
-							cout << "\x1b[92mПравильно\x1b[0m" << endl << endl;
-							Points++;
-							system("pause");
-							break;
-						}
-						else if (a > 13) {
-							cout << "\x1b[91mНеправильно\x1b[0m" << endl << endl;
-							system("pause");
-							HP--;
-							if (HP == 0) {
-								system("cls");
-								cout << endl << "Увы, но у вас закончились жизни! :(" << endl;
-								cout << "Вы набрали: " << Points << endl;
-								exit(0);
-							}
-						}
-						a++;
-
-					}
-			//	}
 
 
 				cout << endl;
@@ -396,14 +455,14 @@ int main()
 
 
 
-			break;
+		break;
 		case 2:
 			main();
 			break;
 		default:
 			break;
 		}
-		
+
 		break;
 	case 2:
 		system("cls");
@@ -613,4 +672,3 @@ int main()
 	return 0;
 	int _; cin >> _;
 }
-
