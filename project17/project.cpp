@@ -1,4 +1,4 @@
-﻿
+
 #include <iostream>
 
 using namespace std;
@@ -17,10 +17,21 @@ void Calculator(double numb1, double numb2, char symb) {
         cout << numb1 << " * " << numb2 << " = " << numb1 * numb2;
         break;
     case '/':
-        cout << numb1 << " / " << numb2 << " = " << numb1 / numb2;
+        if (numb2 == 0) {
+            cout << "Делить на 0 нельзя!";
+        }
+        else {
+            cout << numb1 << " / " << numb2 << " = " << numb1 / numb2;
+        }
         break;
     case '%':
-        cout << numb1 << " % " << numb2 << " = " << (int)numb1 % (int)numb2;
+        if (numb2 == 0) {
+            cout << "Делить на 0 нельзя!";
+        }
+        else {
+            cout << numb1 << " % " << numb2 << " = " << (int)numb1 % (int)numb2; 
+        }
+       
         break;
     case '^':
         cout << numb1 << "^" << numb2 << " = " << pow(numb1, numb2);
@@ -92,7 +103,7 @@ int main() {
     case 8:
         Calculator(number_1, number_2, '?');
         break;
-    default: cout << "no found sign";
+    default: cout << "Такого действия нет!!!";
     }
 
 }
