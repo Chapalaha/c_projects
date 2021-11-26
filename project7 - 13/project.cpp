@@ -140,7 +140,7 @@ int main()
                 cout << "Вы ввели некорректное значение!!!";
                 exit(0);
             }
-            cout << "Введите текстуру линии: ";
+            cout << "Введите текстуру квадрата: ";
             char texture;
             cin >> texture;
             cout << endl;
@@ -281,7 +281,7 @@ int main()
         if (number_tr == 1) {
             system("cls");
             cout << "Вы выбрали заполненный треугольник." << endl << endl;
-            cout << "Введите высоту линии: ";
+            cout << "Введите высоту треугольника: ";
             short counter = 0;
             short height_tr;
             cin >> height_tr;
@@ -308,7 +308,7 @@ int main()
         else if (number_tr == 2) {
             system("cls");
             cout << "Вы выбрали пустой треугольник." << endl << endl;
-            cout << "Введите высоту линии: ";
+            cout << "Введите высоту треугольника: ";
             short counter = 0;
             short height_tr;
             cin >> height_tr;
